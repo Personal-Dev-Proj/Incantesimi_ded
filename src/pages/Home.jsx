@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../utils/firebaseConfig.js"
+import { Link } from "react-router-dom";
 
 
 export default function Home(){
@@ -34,6 +35,7 @@ export default function Home(){
                 <div className="row">
                     <div className="col-12">
                         <h1 className="text-center">Lista Incantesimi</h1>
+                        <Link to="/dashboardSpells">Dashboard</Link>
                     </div>
                 </div>
                 <div className="row">
