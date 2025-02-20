@@ -124,7 +124,7 @@ export default function DashboardSpells(){
 
     return(
         <>
-            <h1 className="text-center my-5">Inserisci Nuovo Incantesimo</h1>
+            <h1 className="text-center my-5 display-3 fw-bold">Inserisci Nuovo Incantesimo</h1>
             <section className="container">
                 <div className="row justify-content-center">
                     <div className="col-12 col-md-6">
@@ -150,7 +150,7 @@ export default function DashboardSpells(){
 
 
                         <div className="mb-3">
-                            <p className="form-label">Classe</p>
+                            <p className="form-label text-secondary fw-bold border-bottom">Classe</p>
                             <CheckboxWithSelect 
                                 id="Mag/Str" 
                                 isChecked={formData.classes["Mag/Str"]?.isChecked || false} 

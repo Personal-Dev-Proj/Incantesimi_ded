@@ -6,7 +6,7 @@ export default function SelectField({ id, label, value, firstOption, options, on
 
     return (
         <div className="mb-3">
-            <label htmlFor={id} className="form-label">
+            <label htmlFor={id} className="form-label text-secondary fw-bold">
                 {label}
             </label>
             <select

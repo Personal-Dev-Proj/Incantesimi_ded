@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../utils/firebaseConfig.js"
 import { Link } from "react-router-dom";
+import { fetchCollectionDataDb } from "../utils/functions.js" 
 
 
 export default function Home(){
@@ -9,22 +8,7 @@ export default function Home(){
     const [spells, setSpells] = useState([]);
 
     useEffect(() => {
-        const fetchSpells = async () => {
-            try {
-                const spellsCollection = collection(db, "spells"); // Nome della collezione in Firestore
-                const spellsSnapshot = await getDocs(spellsCollection);
-                const spellsList = spellsSnapshot.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data(),
-                }));
-                setSpells(spellsList);
-            } catch (error) {
-                console.error("Errore durante il fetch degli incantesimi:", error);
-
-            }
-        };
-
-        fetchSpells();
+        fetchCollectionDataDb("spells", setSpells)
     }, []);
 
 
@@ -34,17 +18,17 @@ export default function Home(){
             <header className="container">
                 <div className="row">
                     <div className="col-12">
-                        <h1 className="text-center">Lista Incantesimi</h1>
-                        <Link to="/dashboardSpells">Dashboard</Link>
+                        <h1 className="text-center my-5 display-4 fw-bold">Lista Incantesimi D&D 3.5</h1>
+                        
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-12">
                     {spells.length > 0 ? (
-                        <ul>
+                        <ul className="list-unstyled">
                             {spells.map((spell) => (
-                                <li key={spell.id}>
-                                    <strong>{spell.spellName}</strong> - {spell.magicSchool}
+                                <li key={spell.id} className="text-center">
+                                    <Link className="text-decoration-none fs-4 color-s link-inc" to={`/${spell.id}`}>{spell.spellName}</Link>
                                 </li>
                             ))}
                         </ul>

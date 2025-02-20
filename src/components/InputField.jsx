@@ -7,7 +7,7 @@ export default function InputField({ id, label, type = "text", placeholder = "",
 
   return (
     <div className="mb-3">
-      <label htmlFor={id} className="form-label">
+      <label htmlFor={id} className="form-label text-secondary fw-bold">
         {label}
       </label>
       <input

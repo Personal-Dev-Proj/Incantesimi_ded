@@ -1,1 +1,62 @@
+:root{
+    --color-p: rgb(7, 7, 7);
+    --color-s: rgb(245, 245, 245);
+    --color-a: rgb(158, 0, 0);
+}
+
+/* GENERAL SETTINGS  */
+
+.color-p{
+    color: var(--color-p);
+}
+.color-s{
+    color: var(--color-s);
+}
+.color-a{
+    color: var(--color-a);
+}
+
+
+
+body{
+    background-color: var(--color-p) !important;
+    color: var(--color-s) !important;
+}
+
+main{
+    min-height: calc(100vh - 50px);
+}
+
+h1{
+    color: var(--color-a) !important;
+    text-shadow: 1px 1px var(--color-s);
+}
+
+footer{
+    height: 50px;
+    background-color: var(--color-s) !important;
+    color: var(--color-p) !important;
+}
+
+.footerLink{
+    color: var(--color-p);
+}
+
+
+/* HOMEPAGE  */
+
+.link-inc{
+    text-shadow: 1px 1px rgb(44, 44, 44);
+}
+
+.link-inc:hover{
+    opacity: 0.8;
+}
+
+
+/* DASHBOARD  */
+
+.class-input{
+    width: 150px;
+}
 

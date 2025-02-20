@@ -7,7 +7,7 @@ export default function TextareaField({ id, label, rows = 3, placeholder = "", v
 
   return (
     <div className="mb-3">
-      <label htmlFor={id} className="form-label">
+      <label htmlFor={id} className="form-label text-secondary fw-bold">
         {label}
       </label>
       <textarea
