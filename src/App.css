@@ -32,6 +32,11 @@ h1{
     text-shadow: 1px 1px var(--color-s);
 }
 
+.title{
+    color: var(--color-a) !important;
+    text-shadow: 1px 1px var(--color-s);
+}
+
 footer{
     height: 50px;
     background-color: var(--color-s) !important;
@@ -51,6 +56,17 @@ footer{
 
 .link-inc:hover{
     opacity: 0.8;
+}
+
+.bg-input{
+    background-color: #929191 !important;
+    font-weight: 700 !important;
+}
+
+.bg-input:focus{
+    border: 1px solid rgba(159, 0, 0, 0.487) !important;
+    box-shadow: 1px 1px 5px var(--color-a),
+                -1px -1px 5px var(--color-a) !important;
 }
 
 

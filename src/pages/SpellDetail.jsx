@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchDataById } from "../utils/functions.js"
+import { fetchDataById, objToString } from "../utils/functions.js"
 
 
 export default function SpellDetails() {
@@ -24,6 +24,7 @@ export default function SpellDetails() {
                         <h1 className="text-center my-5 display-3 fw-bold">{spell.spellName}</h1>
                 </div>
                 <div className="col-12 px-3 col-md-10 col-lg-4">
+                        <p><strong className="fs-5 text-secondary">Livello:</strong> {objToString(spell.classes)}</p>
                         <p><strong className="fs-5 text-secondary">Scuola di Magia:</strong> {spell.magicSchool}</p>
                         <p><strong className="fs-5 text-secondary">Componenti:</strong> {spell.components}</p>
                         <p><strong className="fs-5 text-secondary">Tempo di Lancio:</strong> {spell.castTime}</p>

@@ -70,11 +70,6 @@ export default function DashboardSpells(){
         }));
     };
 
-    // Filtra solo i checkbox selezionati
-    // const selectedCheckboxes = Object.entries(formData.classes)
-    // .filter(([_, value]) => value.isChecked)
-    // .map(([id, value]) => ({ id, ...value }));
-
     const validateForm = () => {
         const requiredFields = [
             "spellName",
