@@ -37,6 +37,11 @@ h1{
     text-shadow: 1px 1px var(--color-s);
 }
 
+.title-font{
+    font-family: "Monomakh", serif;
+}
+
+
 footer{
     height: 50px;
     background-color: var(--color-s) !important;
@@ -74,5 +79,19 @@ footer{
 
 .class-input{
     width: 150px;
+}
+
+
+/* REGISTER - LOGIN  */
+
+.registerMenu{
+    border: 2px solid var(--color-a);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 2px 2px 20px var(--color-a);
+}
+
+.custom-h{
+    min-height: 70vh;
 }
 

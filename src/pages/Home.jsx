@@ -51,8 +51,7 @@ export default function Home(){
             <header className="container">
                 <div className="row">
                     <div className="col-12">
-                        <h1 className="text-center my-5 display-4 fw-bold">Lista Incantesimi D&D 3.5</h1>
-                        
+                        <h1 className="text-center my-5 display-4 fw-bold title-font">Lista Incantesimi D&D 3.5</h1>
                     </div>
                 </div>
                 <div className="row">
@@ -100,7 +99,7 @@ export default function Home(){
                 </div>
                 <div className="row">
                     <div className="col-12">
-                        <h2 className="text-center my-5 display-6 fw-bold title">Incantesimi</h2>
+                        <h2 className="text-center my-5 display-6 fw-bold title title-font">Incantesimi</h2>
                     </div>
                     <div className="col-12">
                     {filteredSpells.length > 0 ? (

@@ -4,6 +4,8 @@ import InputField from "../components/InputField";
 import TextareaField from "../components/TextareaField";
 import SelectField from "../components/SelectField.jsx";
 import { stringRegex, createDocDbWithId } from "../utils/functions.js";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 export default function DashboardSpells(){
@@ -107,19 +109,39 @@ export default function DashboardSpells(){
         event.preventDefault(); // Impedisce il refresh della pagina
         if (validateForm()) {
             createDocDbWithId("spells", stringRegex(formData.spellName), formData)
-            console.log("Form inviato con successo:", formData);
-                // Resetta il modulo
+            // console.log("Form inviato con successo:", formData);
+            toast.success('Incantesimo Inserito!', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
+            // Resetta il modulo
             setFormData(initialFormData);
-            // Puoi aggiungere qui la logica di invio al server
+
         } else {
+            toast.error('Errore', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
             console.log("Form non valido.", formData);
         }
         };
 
-
     return(
         <>
-            <h1 className="text-center my-5 display-3 fw-bold">Inserisci Nuovo Incantesimo</h1>
+            <ToastContainer />
+            <h1 className="text-center my-5 display-3 fw-bold title-font">Inserisci Nuovo Incantesimo</h1>
             <section className="container">
                 <div className="row justify-content-center">
                     <div className="col-12 col-md-6">
@@ -147,10 +169,10 @@ export default function DashboardSpells(){
                         <div className="mb-3">
                             <p className="form-label text-secondary fw-bold border-bottom">Classe</p>
                             <CheckboxWithSelect 
-                                id="Mag/Str" 
-                                isChecked={formData.classes["Mag/Str"]?.isChecked || false} 
-                                level={formData.classes["Mag/Str"]?.level || ""} 
-                                label="Mag/Str" 
+                                id="Brd" 
+                                isChecked={formData.classes.Brd?.isChecked || false} 
+                                level={formData.classes.Brd?.level || ""} 
+                                label="Brd" 
                                 onChange={handleChange} 
                             />
                             <CheckboxWithSelect 
@@ -161,17 +183,17 @@ export default function DashboardSpells(){
                                 onChange={handleChange} 
                             />
                             <CheckboxWithSelect 
-                                id="Brd" 
-                                isChecked={formData.classes.Brd?.isChecked || false} 
-                                level={formData.classes.Brd?.level || ""} 
-                                label="Brd" 
-                                onChange={handleChange} 
-                            />
-                            <CheckboxWithSelect 
                                 id="Drd" 
                                 isChecked={formData.classes.Drd?.isChecked || false} 
                                 level={formData.classes.Drd?.level || ""} 
                                 label="Drd" 
+                                onChange={handleChange} 
+                            />
+                            <CheckboxWithSelect 
+                                id="Mag/Str" 
+                                isChecked={formData.classes["Mag/Str"]?.isChecked || false} 
+                                level={formData.classes["Mag/Str"]?.level || ""} 
+                                label="Mag/Str" 
                                 onChange={handleChange} 
                             />
                             <CheckboxWithSelect 
