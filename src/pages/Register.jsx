@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../utils/firebaseConfig"
 import { doc, setDoc } from "firebase/firestore";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Register(){
     const [username, setUsername] = useState("");
@@ -11,6 +11,17 @@ export default function Register(){
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // Controlla se l'utente è già loggato
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (user) {
+                navigate("/"); // Redirige alla homepage se l'utente è loggato
+            }
+        });
+        return unsubscribe;
+    }, [navigate]);
 
     async function handleRegister(e) {
       e.preventDefault();

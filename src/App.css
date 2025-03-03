@@ -2,7 +2,30 @@
     --color-p: rgb(7, 7, 7);
     --color-s: rgb(245, 245, 245);
     --color-a: rgb(158, 0, 0);
+    --color-ao: rgb(158, 0, 0, .8);
 }
+
+/* SCROLLBAR  */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background:  rgb(23, 23, 23);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--color-a);
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-ao);
+  }
 
 /* GENERAL SETTINGS  */
 

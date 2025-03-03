@@ -106,7 +106,7 @@ export default function Home(){
                         <ul className="list-unstyled">
                             {filteredSpells.map((spell) => (
                                 <li key={spell.id} className="text-center">
-                                    <Link className="text-decoration-none fs-4 color-s link-inc" to={`/${spell.id}`}>{spell.spellName}</Link>
+                                    <Link className="text-decoration-none fs-4 color-s link-inc" to={`/spell/${spell.id}`}>{spell.spellName}</Link>
                                 </li>
                             ))}
                         </ul>

@@ -1,12 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebaseConfig";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // Controlla se l'utente è già loggato
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (user) {
+                navigate("/"); // Redirige alla homepage se l'utente è loggato
+            }
+        });
+        return unsubscribe;
+    }, [navigate]);
+
 
     async function handleLogin(e) {
         e.preventDefault();

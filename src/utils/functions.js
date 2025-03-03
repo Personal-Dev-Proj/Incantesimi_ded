@@ -6,14 +6,18 @@ export function stringRegex(string){
     return string.replace(/[^\w]+/g, "")
 }
 
-export function objToString(obj){
-    let string = "";
-    for(const key in obj){
-        if(obj[key].isChecked){
-            string+= `${key} ${obj[key].level}, `
-        }
-    }
-    return string
+// export function objToString(obj){
+//     let string = "";
+//     for(const key in obj){
+//         if(obj[key].isChecked){
+//             string+= `${key} ${obj[key].level}, `
+//         }
+//     }
+//     return string
+// }
+
+export function regexUriMagStr(string){
+    return string.replace(/\//g, "-");
 }
 
 export async function createDocDbWithId(nameCollection, nameDoc, data ){

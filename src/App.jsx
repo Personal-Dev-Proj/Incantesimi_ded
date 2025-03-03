@@ -8,8 +8,9 @@ import Register from './pages/Register.jsx';
 import DashboardSpells from "./pages/DashboardSpells.jsx";
 import SpellDetails from './pages/SpellDetail.jsx';
 import Footer from './components/Footer.jsx';
+import ClassSpells from './pages/ClassSpells.jsx';
 
-function App() {
+export default function App() {
 
 
   return (
@@ -17,7 +18,8 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/:id" element={<SpellDetails />} />
+          <Route path="/spell/:id" element={<SpellDetails />} />
+          <Route path="/class/:className" element={<ClassSpells />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboardSpells" element={<DashboardSpells />} />
@@ -28,4 +30,3 @@ function App() {
   )
 }
 
-export default App
