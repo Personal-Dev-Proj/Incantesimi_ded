@@ -9,6 +9,7 @@ import DashboardSpells from "./pages/DashboardSpells.jsx";
 import SpellDetails from './pages/SpellDetail.jsx';
 import Footer from './components/Footer.jsx';
 import ClassSpells from './pages/ClassSpells.jsx';
+import InsertSpellCopyPaste from "./pages/InsertSpellCopyPaste.jsx"
 
 export default function App() {
 
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboardSpells" element={<DashboardSpells />} />
+          <Route path="/testInsert" element={<InsertSpellCopyPaste />} />
         </Routes>
       </main>
       <Footer />
