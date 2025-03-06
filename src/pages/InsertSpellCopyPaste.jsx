@@ -38,7 +38,7 @@ export default function InsertSpellCopyPaste() {
         const allowedClasses = ["Brd", "Chr", "Drd", "Mag/Str", "Pal", "Rgr"];
     
         formData.spellName = lines[0]?.trim() || ""; // Nome incantesimo dalla prima riga
-        formData.magicSchool = lines[1]?.trim() || ""; // Scuola di magia dalla seconda riga
+        formData.magicSchool = lines[1]?.trim().split(" ")[0] || ""; // Scuola di magia dalla seconda riga
     
         lines.slice(2).forEach((line) => {
             if (line.startsWith("Livello:")) {
@@ -68,7 +68,7 @@ export default function InsertSpellCopyPaste() {
                 formData.spellResistence = line
                     .replace("Resistenza agli incantesimi:", "")
                     .trim();
-            } else if (!line.startsWith("Componente materiale:") && line.trim()) {
+            } else if ( line.trim()) {
                 formData.description += line + " "; // Aggiungi la descrizione
             }
         });

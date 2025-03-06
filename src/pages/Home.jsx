@@ -101,20 +101,49 @@ export default function Home(){
                     <div className="col-12">
                         <h2 className="text-center my-5 display-6 fw-bold title title-font">Incantesimi</h2>
                     </div>
-                    <div className="col-12">
+                </div>
+                    {/* {filteredSpells.length > 0 ? (
+                        <div className="row">
+                        
+                            {filteredSpells.map((spell, i) => {
+                                return (
+                                <>
+                                    {(i + 1) % 10 === 1 && <div className="col-6">}
+                                    <p key={spell.id} className="text-center m-0">
+                                        <Link className="text-decoration-none fs-4 color-s link-inc" to={`/spell/${spell.id}`}>{spell.spellName}</Link>
+                                    </p>
+                                    {(i + 1) % 10 === 0 && </div>}
+                                </>
+                                )}
+                            )}
+                    </div>
+                    ) : (
+                        <p className="text-center my-5 display-6">Non ci sono Incantesimi</p>
+                    )} */}
                     {filteredSpells.length > 0 ? (
-                        <ul className="list-unstyled">
-                            {filteredSpells.map((spell) => (
-                                <li key={spell.id} className="text-center">
-                                    <Link className="text-decoration-none fs-4 color-s link-inc" to={`/spell/${spell.id}`}>{spell.spellName}</Link>
-                                </li>
+                        <div className="row">
+                            {filteredSpells.reduce((acc, spell, i) => {
+                                if (i % 20 === 0) acc.push([]);
+                                acc[acc.length - 1].push(spell);
+                                return acc;
+                            }, []).map((group, index) => (
+                                <div key={`group-${index}`} className="col-12 col-md-6 col-lg-4 my-md-5">
+                                    {group.map((spell) => (
+                                        <p key={spell.id} className="text-center m-0">
+                                            <Link
+                                                className="text-decoration-none fs-4 color-s link-inc"
+                                                to={`/spell/${spell.id}`}
+                                            >
+                                                {spell.spellName}
+                                            </Link>
+                                        </p>
+                                    ))}
+                                </div>
                             ))}
-                        </ul>
+                        </div>
                     ) : (
                         <p className="text-center my-5 display-6">Non ci sono Incantesimi</p>
                     )}
-                    </div>
-                </div>
             </header>
         </>
     )
