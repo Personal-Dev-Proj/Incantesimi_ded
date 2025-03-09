@@ -102,24 +102,6 @@ export default function Home(){
                         <h2 className="text-center my-5 display-6 fw-bold title title-font">Incantesimi</h2>
                     </div>
                 </div>
-                    {/* {filteredSpells.length > 0 ? (
-                        <div className="row">
-                        
-                            {filteredSpells.map((spell, i) => {
-                                return (
-                                <>
-                                    {(i + 1) % 10 === 1 && <div className="col-6">}
-                                    <p key={spell.id} className="text-center m-0">
-                                        <Link className="text-decoration-none fs-4 color-s link-inc" to={`/spell/${spell.id}`}>{spell.spellName}</Link>
-                                    </p>
-                                    {(i + 1) % 10 === 0 && </div>}
-                                </>
-                                )}
-                            )}
-                    </div>
-                    ) : (
-                        <p className="text-center my-5 display-6">Non ci sono Incantesimi</p>
-                    )} */}
                     {filteredSpells.length > 0 ? (
                         <div className="row">
                             {filteredSpells.reduce((acc, spell, i) => {

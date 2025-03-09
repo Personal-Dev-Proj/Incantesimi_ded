@@ -42,16 +42,23 @@ export async function fetchCollectionDataDb(nameCollection, setState, setState2 
     }
 }
 
-export async function fetchDataById (nameCollection, id, setState){
+export async function fetchDataById(nameCollection, id, setState = null) {
     try {
         const dataDoc = doc(db, nameCollection, id);
         const dataSnapshot = await getDoc(dataDoc);
+
         if (dataSnapshot.exists()) {
-            setState(dataSnapshot.data());
+            const data = dataSnapshot.data();
+            if (setState) {
+                setState(data);
+            }
+            return data; // Restituisci i dati per un uso diretto
         } else {
-            console.error("Incantesimo non trovato");
+            console.error("Documento non trovato nella collezione:", nameCollection);
+            return null;
         }
     } catch (error) {
-        console.error("Errore durante il fetch dei dettagli dell'incantesimo:", error);
+        console.error("Errore durante il fetch dei dati:", error);
+        throw error; // Lancia l'errore se serve gestirlo altrove
     }
 }

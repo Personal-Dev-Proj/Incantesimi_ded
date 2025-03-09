@@ -10,12 +10,14 @@ import SpellDetails from './pages/SpellDetail.jsx';
 import Footer from './components/Footer.jsx';
 import ClassSpells from './pages/ClassSpells.jsx';
 import InsertSpellCopyPaste from "./pages/InsertSpellCopyPaste.jsx"
+import Navbar from './components/Navbar.jsx';
 
 export default function App() {
 
 
   return (
     <>
+      <Navbar/>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
