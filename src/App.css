@@ -27,6 +27,18 @@
     background: var(--color-ao);
   }
 
+/* Rimuove le frecce per Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Rimuove le frecce per Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 /* GENERAL SETTINGS  */
 
 .color-p{
@@ -62,6 +74,18 @@ h1{
 
 .title-font{
     font-family: "Monomakh", serif;
+}
+
+.btn-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50% !important;
+    background-color: var(--color-s) !important;
+    margin: 20px;
+    box-shadow: 2px 2px 10px var(--color-a), -2px -2px 10px var(--color-a) !important;
 }
 
 
@@ -116,5 +140,28 @@ footer{
 
 .custom-h{
     min-height: 70vh;
+}
+
+
+/* SPELL LIST  */
+
+.suggestions-box {
+    position: absolute;
+    top: 103%;
+    max-height: 200px;
+    /* overflow-y: auto; */
+    z-index: 1000;
+    background-color: black;
+    overflow: hidden;
+}
+
+.suggestion-item {
+    cursor: pointer;
+    padding: 8px;
+    transition: background-color 0.2s;
+}
+
+.suggestion-item:hover {
+    background-color: #171717;
 }
 

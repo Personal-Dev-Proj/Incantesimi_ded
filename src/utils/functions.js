@@ -1,5 +1,5 @@
 import { db, auth } from "../utils/firebaseConfig.js"
-import { collection, setDoc, doc, getDoc, getDocs } from "firebase/firestore";
+import { collection, setDoc, doc, getDoc, getDocs, updateDoc, arrayUnion } from "firebase/firestore";
 
 
 export function stringRegex(string){
@@ -23,6 +23,25 @@ export function regexUriMagStr(string){
 export async function createDocDbWithId(nameCollection, nameDoc, data ){
     await setDoc(doc(db, nameCollection, nameDoc), data);
 }
+
+export async function saveArrayElementInDocField(collectionName, docId, fieldName, data){
+    const docRef = doc(db, collectionName, docId);
+    await updateDoc(docRef, {
+        [fieldName]: arrayUnion({
+            ...data,
+            createdAt: new Date().toISOString(),
+        }),
+    });
+}
+
+export async function fetchArrayFieldFromDoc(collectionName, docId) {
+    const userDoc = await getDoc(doc(db, collectionName, docId));
+    if (userDoc.exists()) {
+        const data = userDoc.data();
+        return data.characters || [];
+    }
+}
+
 
 export async function fetchCollectionDataDb(nameCollection, setState, setState2 ){
     try {

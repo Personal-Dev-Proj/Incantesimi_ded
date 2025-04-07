@@ -45,8 +45,10 @@ export default function Register(){
         await setDoc(doc(db, "users", userId), {
             username: username,
             email: email,
+            role: "user",
             createdAt: new Date(),
             characters: [],
+
         });
     
         setSuccess("Registrazione completata con successo! Puoi accedere ora.");

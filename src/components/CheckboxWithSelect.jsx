@@ -1,20 +1,6 @@
 import React, { useState } from "react";
 
 export default function CheckboxWithSelect({id, label, isChecked, level, onChange}){
-    // const [isChecked, setIsChecked] = useState(false);
-    // const [selectedValue, setSelectedValue] = useState("0");
-    
-    const handleCheckboxChange = (event) => {
-        const checked = event.target.checked;
-        setIsChecked(checked);
-        onChange(id, checked, selectedValue); // Notifica il genitore
-      };
-
-      const handleSelectChange = (event) => {
-        const value = event.target.value;
-        setSelectedValue(value);
-        onChange(id, isChecked, value); // Notifica il genitore
-      };
 
     return(
         <div className="d-flex align-items-center">

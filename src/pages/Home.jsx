@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchCollectionDataDb } from "../utils/functions.js" 
+import { useSpells } from "../utils/SpellContext.jsx";
 
 
 export default function Home(){
 
-    const [spells, setSpells] = useState([]);
+    const { spells, loading } = useSpells();
     const [filteredSpells, setFilteredSpells] = useState([]);
     const [filters, setFilters] = useState({
         name: "",
@@ -14,8 +15,8 @@ export default function Home(){
     });
 
     useEffect(() => {
-        fetchCollectionDataDb("spells", setSpells, setFilteredSpells)
-    }, []);
+        setFilteredSpells(spells);
+    }, [spells]);
 
     // Filtra gli incantesimi quando i filtri cambiano
     useEffect(() => {

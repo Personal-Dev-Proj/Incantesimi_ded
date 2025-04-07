@@ -11,6 +11,8 @@ import Footer from './components/Footer.jsx';
 import ClassSpells from './pages/ClassSpells.jsx';
 import InsertSpellCopyPaste from "./pages/InsertSpellCopyPaste.jsx"
 import Navbar from './components/Navbar.jsx';
+import CreateCharacter from './pages/CreateCharacter.jsx';
+import CreateCharacterSpellList from './pages/CreateCharacterSpellsList.jsx';
 
 export default function App() {
 
@@ -19,15 +21,17 @@ export default function App() {
     <>
       <Navbar/>
       <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/spell/:id" element={<SpellDetails />} />
-          <Route path="/class/:className" element={<ClassSpells />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/dashboardSpells" element={<DashboardSpells />} />
-          <Route path="/testInsert" element={<InsertSpellCopyPaste />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/createCharacter" element={<CreateCharacter />} />
+            <Route path="/createCharacterSpellList" element={<CreateCharacterSpellList />} />
+            <Route path="/spell/:id" element={<SpellDetails />} />
+            <Route path="/class/:className" element={<ClassSpells />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/dashboardSpells" element={<DashboardSpells />} />
+            <Route path="/testInsert" element={<InsertSpellCopyPaste />} />
+          </Routes>
       </main>
       <Footer />
     </>
