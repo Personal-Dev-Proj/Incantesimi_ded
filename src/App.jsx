@@ -13,6 +13,7 @@ import InsertSpellCopyPaste from "./pages/InsertSpellCopyPaste.jsx"
 import Navbar from './components/Navbar.jsx';
 import CreateCharacter from './pages/CreateCharacter.jsx';
 import CreateCharacterSpellList from './pages/CreateCharacterSpellsList.jsx';
+import CharacterDetail from './pages/CharacterDetail.jsx';
 
 export default function App() {
 
@@ -25,6 +26,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/createCharacter" element={<CreateCharacter />} />
             <Route path="/createCharacterSpellList" element={<CreateCharacterSpellList />} />
+            <Route path="/user/:userId/character/:characterId" element={<CharacterDetail />} />
             <Route path="/spell/:id" element={<SpellDetails />} />
             <Route path="/class/:className" element={<ClassSpells />} />
             <Route path="/login" element={<Login />} />

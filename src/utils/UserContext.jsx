@@ -10,6 +10,16 @@ export const UserProvider = ({ children }) => {
     const [userData, setUserData] = useState(null);
     // const [loading, setLoading] = useState(true);
 
+    const refreshUserData = async () => {
+        if (user) {
+            try {
+                await fetchDataById("users", user.uid, setUserData);
+            } catch (error) {
+                console.error("Errore durante l'aggiornamento dei dati utente:", error);
+            }
+        }
+    };
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             if (currentUser) {
@@ -30,7 +40,7 @@ export const UserProvider = ({ children }) => {
     }, []);
 
     return (
-        <UserContext.Provider value={{ user, userData }}>
+        <UserContext.Provider value={{ user, userData, refreshUserData }}>
             {children}
         </UserContext.Provider>
     );

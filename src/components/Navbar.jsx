@@ -81,9 +81,11 @@ export default function Navbar() {
                                             </li>
                                             {characters.map((char, index) => (
                                                 <li key={index}>
-                                                    <span className="dropdown-item">
-                                                        {char.name} ({char.class} Lv.{char.level})
-                                                    </span>
+                                                    <Link 
+                                                        to={`/user/${user.uid}/character/${char.id}`} 
+                                                        className="dropdown-item">
+                                                            {char.name} ({char.class} Lv.{char.level})
+                                                    </Link>
                                                 </li>
                                             ))}
                                         </ul>
